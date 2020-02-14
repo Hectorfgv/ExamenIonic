@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>mis_chats</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>   
+    <ion-card-content>   
+      <ion-list>
+        <ion-item *ngFor="let item of usuarios">
+        
+          <ion-grid>
+            <ion-row>
+              <ion-col>Correo: {{item.nombre}}</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>ID: {{item.id}}</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>Nombre: {{item.correo}}</ion-col>
+            </ion-row>
+          </ion-grid>  
+        </ion-item>  
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

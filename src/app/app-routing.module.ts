@@ -33,6 +33,15 @@ const routes: Routes = [
     loadChildren: () => import('./modificar/modificar.module').then( m => m.ModificarPageModule)
   },
   
+  {
+    path: 'usuarios',
+    loadChildren: () => import('./usuarios/usuarios.module').then( m => m.UsuariosPageModule)
+  },
+  {
+    path: 'mis-chats',
+    loadChildren: () => import('./mis-chats/mis-chats.module').then( m => m.MisChatsPageModule)
+  },
+  
   
 ];
 

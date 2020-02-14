@@ -10,6 +10,16 @@ export interface IProducto{
     precio: number,
     id: string,
 }
+
+//Examen 14/2
+export interface IChatUsuarios {
+    nombre:string;
+    idUsuario: string;
+    correo:string;
+}
+
+
+
 //ex
 export interface IProductoUsuarios {
     idProducto:string;
