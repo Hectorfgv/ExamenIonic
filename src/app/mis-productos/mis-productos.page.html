@@ -1,0 +1,75 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-button slot="start">
+            <ion-back-button defaultHref="/principal/"></ion-back-button>
+          </ion-button>
+      <ion-title>Mis productos</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+  <ion-item>
+    <ion-label>Filtrar por categoria:</ion-label>
+    <ion-select [(ngModel)]="categoria" #V (ionChange)="filter(V.value)">  
+      <ion-select-option value="tecnologia">Tecnologia</ion-select-option>
+      <ion-select-option value="hogar">Hogar</ion-select-option>
+      <ion-select-option value="inmobiliaria">Inmobiliaria</ion-select-option>
+      <ion-select-option value="motor">Motor</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-card>   
+    <ion-card-content>   
+      <ion-list>
+        <ion-item *ngFor="let item of productos">
+        <ion-item *ngIf="item.categoria == categoria">
+          <ion-grid>
+            <ion-row>
+              <ion-col>Nombre: {{item.nombre}}</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>Descripcion: {{item.descripcion}}</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>Categoria: {{item.categoria}}</ion-col>
+            </ion-row>
+            <ion-row *ngIf="item.categoria == 'tecnologia'">
+                <ion-col>Estado: {{item.estado}}</ion-col>
+              </ion-row>
+            <ion-row *ngIf="item.categoria == 'inmobiliaria'">
+              <ion-col>Metros: {{item.metros}}</ion-col>
+            </ion-row>
+            <ion-row *ngIf="item.categoria == 'inmobiliaria'">
+                <ion-col>Baños: {{item.banios}}</ion-col>
+              </ion-row>
+           <ion-row *ngIf="item.categoria == 'inmobiliaria'">
+            <ion-col>Habitaciones: {{item.habitaciones}}</ion-col>
+           </ion-row>
+           <ion-row *ngIf="item.categoria == 'inmobiliaria'">
+             <ion-col>Localidad: {{item.localidad}}</ion-col>
+           </ion-row>
+           <ion-row *ngIf="item.categoria == 'motor'">
+              <ion-col>Vehiculo: {{item.vehiculo}}</ion-col>
+            </ion-row>
+           <ion-row *ngIf="item.categoria == 'motor'">
+              <ion-col>Km: {{item.km}}</ion-col>
+            </ion-row>
+            <ion-row *ngIf="categoria == 'motor'">
+                <ion-col>Año: {{item.anio}}</ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>Usuario: {{item.usuario}} </ion-col>
+              </ion-row>
+               <ion-row>
+              <ion-col>Precio: {{item.precio}} €</ion-col>
+            </ion-row>
+          </ion-grid>
+          <ion-button (click)="remove(item.id)">Eliminar</ion-button>
+          <ion-button expand="block" [routerLink]="['/modificar/',item.id]" routerDirection="forward">
+            Editar
+       </ion-button>
+        </ion-item>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
